@@ -1,0 +1,109 @@
+// Media Query Manager
+/* 
+0 - 767px:      Phone
+768 - 1024px:   Tablet
+1024px +:       Desktop
+
+$breakpoint argument choices:
+- tablet
+-desktop
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == tablet {
+    @media (min-width: 48em) {
+      // 768px
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-desk {
+    @media (min-width: 48em) and (max-width: 64em) {
+      // 1024px
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktop {
+    @media (min-width: 64em) {
+      // 1024px
+      @content;
+    }
+  }
+}
+
+/* Fonts */
+
+@mixin font-barlow {
+  font-family: "Barlow Condensed", arial, sans-serif;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 2.7px;
+}
+
+/* Main */
+@mixin main {
+  min-height: 100vh;
+  padding-block: 10rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include respond(desktop) {
+    text-align: left;
+  }
+}
+
+@mixin main-bg($bg) {
+  background: url($bg) center center no-repeat;
+  background-size: cover;
+}
+
+/* Heading for inner page */
+@mixin inner-h1 {
+  font-family: "Barlow Condensed", arial, sans-serif;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 2.7px;
+
+  @include respond(tablet) {
+    text-align: left;
+  }
+
+  @include respond(desktop) {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+}
+
+@mixin inner-h1-index {
+  content: attr(data-index);
+  margin-right: 2rem;
+  opacity: 0.25;
+}
+
+/* Inner Section */
+@mixin inner-section-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+
+  @include respond(desktop) {
+    flex-direction: row;
+    align-items: center;
+    gap: 7rem;
+  }
+}
+
+@mixin tabs-container($gap: 3rem) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $gap;
+  margin-bottom: 3rem;
+
+  @include respond(desktop) {
+    justify-content: flex-start;
+  }
+}

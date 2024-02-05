@@ -1,0 +1,154 @@
+$mobileTechBg: "../assets/technology/background-technology-mobile.jpg";
+$tabletTechBg: "../assets/technology/background-technology-tablet.jpg";
+$desktopTechBg: "../assets/technology/background-technology-desktop.jpg";
+
+[data-page="technology"] {
+  & main {
+    @include main;
+    padding-bottom: 0;
+    @include main-bg($mobileTechBg);
+
+    @include respond(tablet) {
+      @include main-bg($tabletTechBg);
+    }
+
+    @include respond(desktop) {
+      @include main-bg($desktopTechBg);
+    }
+  }
+
+  & .main-container {
+    padding-bottom: 0;
+  }
+
+  & h1 {
+    @include inner-h1;
+  }
+
+  & h1::before {
+    @include inner-h1-index;
+  }
+
+  & .img {
+    width: 200px;
+  }
+
+  & .technology {
+    @include inner-section-flex;
+    @include respond(tablet) {
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 5rem;
+    }
+
+    @include respond(desktop) {
+      flex-direction: row-reverse;
+      align-items: center;
+      margin-top: 0;
+    }
+
+    &__img {
+      margin: 0 auto;
+      position: relative;
+
+      @include respond(desktop) {
+        width: 50%;
+
+        & img {
+          width: 100%;
+        }
+      }
+
+      @include respond(desktop) {
+        text-align: center;
+      }
+    }
+
+    &__texts {
+      margin-inline: 10%;
+      @include respond(tablet) {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 3rem;
+      }
+      @include respond(desktop) {
+        width: 50%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    &__tabs {
+      @include tabs-container(2rem);
+
+      @include respond(desktop) {
+        margin-top: 5rem;
+        flex-direction: column;
+      }
+    }
+
+    &__tab {
+      font-family: "Bellefair", sans-serif;
+      color: $color-white;
+      background-color: transparent;
+      border: 1px solid rgba($color-white, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 4rem;
+      padding: 1rem;
+      border-radius: 2rem;
+      aspect-ratio: 1 / 1;
+      transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+      &.active {
+        background: $color-white;
+        color: $color-black;
+      }
+
+      &:hover {
+        border: 1px solid $color-white;
+      }
+    }
+
+    &__content {
+      display: none;
+
+      & h3 {
+        @include font-barlow;
+        // font-size: 1.6rem;
+        // text-transform: uppercase;
+        // opacity: 0.5;
+        margin-bottom: 5px;
+        color: $color-purple;
+
+        @include respond(tablet) {
+          font-size: 2.4rem;
+        }
+
+        @include respond(desktop) {
+          font-size: 3.2rem;
+        }
+      }
+
+      & h2 {
+        text-transform: uppercase;
+        font-size: 2.4rem;
+        margin-bottom: 10px;
+
+        @include respond(tablet) {
+          font-size: 4rem;
+        }
+
+        @include respond(desktop) {
+          font-size: 5.6rem;
+        }
+      }
+    }
+    &__content.active {
+      display: block;
+    }
+  }
+}

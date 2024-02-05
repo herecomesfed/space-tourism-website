@@ -1,0 +1,155 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-inline: 5%;
+  min-height: 5rem;
+  margin: 0 auto;
+  // padding: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  z-index: 9999999999999999999;
+
+  @include respond(tablet) {
+    padding: 0;
+  }
+
+  @include respond(desktop) {
+    top: 3rem;
+  }
+
+  &__logo {
+    width: 3rem;
+    @include respond(tablet) {
+      padding-left: 1.6rem;
+      width: 13rem;
+      text-align: center;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: -100%;
+    width: 50%;
+    height: 100%;
+    transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    @include respond(tablet) {
+      position: relative;
+      top: unset;
+      right: unset;
+      width: 60%;
+    }
+
+    @include respond(desktop) {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -45%;
+        width: 50%;
+        height: 2px;
+        background: rgb($color-white, 0.2);
+        z-index: 10;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgb($color-white, 0.3);
+      backdrop-filter: blur(1rem);
+      z-index: 10;
+
+      @include respond(tablet) {
+        background: rgb($color-white, 0.05);
+      }
+    }
+
+    & ul {
+      position: relative;
+      list-style: none;
+      margin-top: 7rem;
+      margin-left: 2rem;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      @include respond(tablet) {
+        margin-left: 0;
+        margin-top: 0;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      @include respond(desktop) {
+        justify-content: center;
+        gap: 10rem;
+      }
+
+      & li a {
+        display: inline-block;
+        padding-block: 1rem;
+        @include respond(tablet) {
+          text-transform: uppercase;
+          padding-block: 3rem;
+        }
+
+        &.active {
+          border-bottom: 3px solid $color-white;
+        }
+      }
+
+      & li .menu-index {
+        margin-right: 5px;
+        font-weight: 500;
+
+        @include respond(tab-desk) {
+          display: none;
+        }
+      }
+
+      & li:not(:last-child) {
+        margin-bottom: 1rem;
+
+        @include respond(tablet) {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &[aria-expanded="true"] {
+      right: 0;
+    }
+  }
+
+  &__hamburger {
+    position: relative;
+    z-index: 10;
+    width: 2rem;
+    cursor: pointer;
+
+    @include respond(tablet) {
+      display: none;
+    }
+
+    &[aria-expanded="false"] &--close {
+      display: none;
+    }
+
+    &[aria-expanded="true"] &--open {
+      display: none;
+    }
+  }
+}

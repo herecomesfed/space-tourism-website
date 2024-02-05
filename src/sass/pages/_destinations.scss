@@ -1,0 +1,137 @@
+$mobileDestBg: "../assets/destination/background-destination-mobile.jpg";
+$tabletDestBg: "../assets/destination/background-destination-tablet.jpg";
+$desktopDestBg: "../assets/destination/background-destination-desktop.jpg";
+
+[data-page="destinations"] {
+  & main {
+    @include main;
+    @include main-bg($mobileDestBg);
+
+    @include respond(tablet) {
+      @include main-bg($tabletDestBg);
+    }
+
+    @include respond(desktop) {
+      @include main-bg($desktopDestBg);
+    }
+  }
+
+  & h1 {
+    @include inner-h1;
+  }
+
+  & h1::before {
+    @include inner-h1-index;
+  }
+
+  & .img {
+    width: 200px;
+  }
+
+  & .destinations {
+    @include inner-section-flex;
+
+    &__img {
+      width: 70%;
+      margin: 0 auto;
+
+      @include respond(desktop) {
+        width: 33.333333%;
+        text-align: center;
+      }
+    }
+
+    &__texts {
+      @include respond(desktop) {
+        width: 66%;
+      }
+    }
+
+    &__tabs {
+      @include tabs-container;
+    }
+
+    &__tab {
+      font-family: "Barlow Condensed", arial, sans-serif;
+      color: $color-purple;
+      position: relative;
+      font-size: 1.6rem;
+      letter-spacing: 2.7px;
+      padding-bottom: 2rem;
+      text-transform: uppercase;
+      background: transparent;
+      border: none;
+      // cursor: pointer;
+      // transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: $color-white;
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+
+      &:hover::before {
+        opacity: 0.2;
+      }
+
+      &.active {
+        color: $color-white;
+      }
+
+      &.active::before {
+        opacity: 1;
+      }
+    }
+
+    &__content {
+      display: none;
+
+      & h2 {
+        text-transform: uppercase;
+        font-size: 5.6rem;
+
+        @include respond(desktop) {
+          font-size: 10rem;
+        }
+      }
+    }
+    &__content.active {
+      display: block;
+    }
+
+    & .separator {
+      opacity: 0.2;
+      margin-top: 3rem;
+    }
+    &__travel-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3rem;
+      text-transform: uppercase;
+      margin-top: 3rem;
+
+      @include respond(tablet) {
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+
+      & h3 {
+        font-size: 1.4rem;
+        color: $color-purple;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+
+      & h4 {
+        font-size: 2.8rem;
+      }
+    }
+  }
+}

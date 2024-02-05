@@ -1,0 +1,154 @@
+$mobileCrewBg: "../assets/crew/background-crew-mobile.jpg";
+$tabletCrewBg: "../assets/crew/background-crew-tablet.jpg";
+$desktopCrewBg: "../assets/crew/background-crew-desktop.jpg";
+
+[data-page="crew"] {
+  & main {
+    @include main;
+    padding-bottom: 0;
+    @include main-bg($mobileCrewBg);
+
+    @include respond(tablet) {
+      @include main-bg($tabletCrewBg);
+    }
+
+    @include respond(desktop) {
+      @include main-bg($desktopCrewBg);
+    }
+  }
+
+  & .main-container {
+    padding-bottom: 0;
+  }
+
+  & h1 {
+    @include inner-h1;
+  }
+
+  & h1::before {
+    @include inner-h1-index;
+  }
+
+  & .img {
+    width: 200px;
+  }
+
+  & .crew {
+    @include inner-section-flex;
+    @include respond(tablet) {
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 5rem;
+    }
+
+    @include respond(desktop) {
+      flex-direction: row-reverse;
+      align-items: center;
+      margin-top: 0;
+    }
+
+    &__img {
+      margin: 0 auto;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        opacity: 0.2;
+        background: $color-white;
+      }
+
+      @include respond(desktop) {
+        width: 40%;
+      }
+
+      & img {
+        width: 70%;
+
+        @include respond(tablet) {
+          width: 100%;
+        }
+      }
+
+      @include respond(desktop) {
+        text-align: center;
+      }
+    }
+
+    &__texts {
+      @include respond(tablet) {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 3rem;
+      }
+      @include respond(desktop) {
+        width: 60%;
+        justify-content: space-between;
+      }
+    }
+
+    &__tabs {
+      @include tabs-container(2rem);
+
+      @include respond(desktop) {
+        margin-top: 5rem;
+      }
+    }
+
+    &__tab {
+      width: 15px;
+      height: 15px;
+      border-radius: 100%;
+      opacity: 0.2;
+      transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+      &.active {
+        opacity: 1;
+      }
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    &__content {
+      display: none;
+
+      & h3 {
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        opacity: 0.5;
+        margin-bottom: 5px;
+
+        @include respond(tablet) {
+          font-size: 2.4rem;
+        }
+
+        @include respond(desktop) {
+          font-size: 3.2rem;
+        }
+      }
+
+      & h2 {
+        text-transform: uppercase;
+        font-size: 2.4rem;
+        margin-bottom: 10px;
+
+        @include respond(tablet) {
+          font-size: 4rem;
+        }
+
+        @include respond(desktop) {
+          font-size: 5.6rem;
+        }
+      }
+    }
+    &__content.active {
+      display: block;
+    }
+  }
+}

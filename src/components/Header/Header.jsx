@@ -53,7 +53,6 @@ const Header = () => {
       </div>
       <nav className="header__menu" aria-expanded={ariaExpanded}>
         <ul aria-label="Main Menu">
-          {/* <BrowserRouter> */}
           {links.map((link, index) => {
             return (
               <li key={index}>
@@ -66,23 +65,9 @@ const Header = () => {
               </li>
             );
           })}
-          {/* </BrowserRouter> */}
         </ul>
       </nav>
       <Burger ariaExpanded={ariaExpanded} />
-      {/* <div
-        className="header__hamburger"
-        aria-label="Burger Menu"
-        aria-expanded={ariaExpanded}
-        tabIndex="0"
-      >
-        <img
-          className="header__hamburger--open"
-          src={hamburger}
-          alt="Hamburger"
-        />
-        <img className="header__hamburger--close" src={close} alt="Close" />
-      </div> */}
     </header>
   );
 };

@@ -41,7 +41,10 @@ const Header = () => {
   const [ariaExpanded, setAriaExpanded] = useState(false);
 
   const handleToggleMenu = function (e) {
-    if (e.target.closest(".header__hamburger") || e.target.closest("a")) {
+    if (
+      e.target.closest(".header__hamburger") ||
+      (window.innerWidth < 768 && e.target.closest("a"))
+    ) {
       setAriaExpanded(!ariaExpanded);
     }
   };

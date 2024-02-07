@@ -1,23 +1,25 @@
-const TabsContent = ({ destinations, activeTab }) => {
-  return destinations.map((d, i) => {
+const TabsContent = ({ bodyClassPage, data, activeTab }) => {
+  return data.map((d, i) => {
     return (
       <div
         key={i}
-        className={`destinations__content tab-content ${
+        className={`${bodyClassPage}__content tab-content ${
           activeTab === i + 1 ? "active" : ""
         }`}
         data-tab={i}
       >
+        {/* <h3>{d.role}</h3> */}
+        {d.role && <h3>{d.role}</h3>}
         <h2>{d.name}</h2>
-        <p>{d.description}</p>
+        <p>{d.description || d.bio}</p>
 
         <hr className="separator" />
-        <div className="destinations__travel-info">
-          <div className="destinations__distance">
+        <div className={`${bodyClassPage}__travel-info`}>
+          <div className={`${bodyClassPage}__distance`}>
             <h3>Avg. Distance</h3>
-            <h4>3{d.distance}</h4>
+            <h4>{d.distance}</h4>
           </div>
-          <div className="destinations__travel-time">
+          <div className={`${bodyClassPage}__travel-time`}>
             <h3>Est. Travel Time</h3>
             <h4>{d.travel}</h4>
           </div>

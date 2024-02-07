@@ -105,6 +105,8 @@ $desktopCrewBg: "../assets/crew/background-crew-desktop.jpg";
       border-radius: 100%;
       opacity: 0.2;
       transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+      text-indent: -9999999999px;
+      overflow: hidden;
 
       &.active {
         opacity: 1;

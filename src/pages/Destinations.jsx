@@ -19,7 +19,7 @@ const Destinations = () => {
         <h1 className="inner-page-heading" data-index="01">
           Pick Your Destination
         </h1>
-        <MediaText bodyClassPage={bodyClassPage} destinations={destinations} />
+        <MediaText bodyClassPage={bodyClassPage} data={destinations} />
       </section>
     </main>
   );

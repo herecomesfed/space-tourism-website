@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+// import moon from "../../../assets/destination/image-moon.webp";
 
 const MediaTextImg = ({ bodyClassPage, data, activeTab }) => {
   const detectSize = (data, activeTab) => {

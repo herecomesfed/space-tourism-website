@@ -4,8 +4,8 @@ import MediaText from "../components/MediaText/MediaText";
 
 import PropTypes from "prop-types";
 
-const Crew = ({ bodyClassPage }) => {
-  const { crew } = data;
+const Technology = ({ bodyClassPage }) => {
+  const { technology } = data;
 
   useEffect(() => {
     document.body.dataset.page = bodyClassPage;
@@ -14,17 +14,17 @@ const Crew = ({ bodyClassPage }) => {
   return (
     <main>
       <section className="main-container">
-        <h1 className="inner-page-heading" data-index="02">
-          Meet Your Crew
+        <h1 className="inner-page-heading breakout" data-index="03">
+          Space Launch 101
         </h1>
-        <MediaText bodyClassPage={bodyClassPage} data={crew} />
+        <MediaText bodyClassPage={bodyClassPage} data={technology} />
       </section>
     </main>
   );
 };
 
-Crew.propTypes = {
+Technology.propTypes = {
   bodyClassPage: PropTypes.string,
 };
 
-export default Crew;
+export default Technology;

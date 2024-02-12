@@ -57,6 +57,7 @@ $desktopTechBg: "../assets/technology/background-technology-desktop.jpg";
 
         & img {
           width: 100%;
+          // content: url("./src/assets/technology/image-launch-vehicle-portrait.jpg");
         }
       }
 
@@ -102,6 +103,8 @@ $desktopTechBg: "../assets/technology/background-technology-desktop.jpg";
       border-radius: 2rem;
       aspect-ratio: 1 / 1;
       transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+      position: relative;
+      text-indent: -100000000000000000px;
 
       &.active {
         background: $color-white;
@@ -110,6 +113,16 @@ $desktopTechBg: "../assets/technology/background-technology-desktop.jpg";
 
       &:hover {
         border: 1px solid $color-white;
+      }
+
+      &::before {
+        content: attr(data-tab);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+        text-indent: 0;
       }
     }
 

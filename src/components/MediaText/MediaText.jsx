@@ -1,11 +1,12 @@
 import Tabs from "./Tabs/Tabs";
 import TabsContent from "./Tabs/TabsContent";
+import MediaTextImg from "./Tabs/MediaTextImg";
+import TabsTexts from "./Tabs/TabsTexts";
 import PropTypes from "prop-types";
 import { useState } from "react";
 
 const MediaText = ({ bodyClassPage, data }) => {
   const [activeTab, setActiveTab] = useState(1);
-  //   console.log(activeTab);
   const handleToggleTabs = function (e) {
     const currentTarget = e.target.closest(".tab");
 
@@ -16,14 +17,17 @@ const MediaText = ({ bodyClassPage, data }) => {
   };
 
   return (
-    <div className={bodyClassPage}>
-      <div className={`${bodyClassPage}__img img-will-change`}>
-        <img
-          src={data[activeTab - 1].images.webp.replace("./", "./src/")}
-          alt="Moon"
-        />
-      </div>
-      <div className={`${bodyClassPage}__texts`}>
+    <div
+      className={`${bodyClassPage} ${
+        bodyClassPage === "technology" ? "full-width" : ""
+      }`}
+    >
+      <MediaTextImg
+        bodyClassPage={bodyClassPage}
+        data={data}
+        activeTab={activeTab}
+      />
+      <TabsTexts bodyClassPage={bodyClassPage}>
         <Tabs
           bodyClassPage={bodyClassPage}
           data={data}
@@ -35,7 +39,7 @@ const MediaText = ({ bodyClassPage, data }) => {
           data={data}
           activeTab={activeTab}
         />
-      </div>
+      </TabsTexts>
     </div>
   );
 };

@@ -4,14 +4,12 @@ import MediaText from "../components/MediaText/MediaText";
 
 import PropTypes from "prop-types";
 
-const Destinations = () => {
+const Destinations = ({ bodyClassPage }) => {
   const { destinations } = data;
-  console.log(data);
-  const bodyClassPage = "destinations";
 
   useEffect(() => {
     document.body.dataset.page = bodyClassPage;
-  }, []);
+  }, [bodyClassPage]);
 
   return (
     <main>

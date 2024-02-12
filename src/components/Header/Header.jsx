@@ -52,7 +52,9 @@ const Header = () => {
   return (
     <header className="header" onClick={handleToggleMenu}>
       <div className="header__logo">
-        <img src={logo} alt="Space Tourism" />
+        <a href="/">
+          <img src={logo} alt="Space Tourism" />
+        </a>
       </div>
       <nav className="header__menu" aria-expanded={ariaExpanded}>
         <ul aria-label="Main Menu">

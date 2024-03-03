@@ -11,6 +11,7 @@ const Burger = ({ ariaExpanded }) => {
       aria-label="Burger Menu"
       aria-expanded={ariaExpanded}
       tabIndex="0"
+      role="navigation"
     >
       <img
         className="header__hamburger--open"
